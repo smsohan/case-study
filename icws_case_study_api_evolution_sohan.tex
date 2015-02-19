@@ -232,6 +232,7 @@ In this section we present our findings for RQ1-3.
 \subsection{RQ1 Versioning} % (fold)
 \label{sub:versioning}
 
+
 \subsubsection{Patterns of Changes}
 
 Based on our coding scheme, we identified the following new change patterns to describe changes between versions of Web APIs in addition to the 16 patterns described by Jun et al. \cite{li_client_2013} as follows:
@@ -306,39 +307,10 @@ when saving user records. We strongly recommend that you test your code and modi
 
 These extended list of change patterns need to be addressed by future work on finding techniques and developing tool support for evolving Web APIs.
 
+
 \subsubsection{Version Identifiers}
 
 We analyzed different approaches to identify the versions of Web APIs to understand if the version identifiers can be used to infer information about their evolution. We can categorize the Web APIs into these groups:
-
-\textbf{Numbered identifiers} - Contiguous integers are used to identify new versions by Salesforce and GitHub Web APIs. Such naming scheme clearly communicates the sequence between versions but cannot be used to infer compatibility between versions.
-
-\textbf{Timestamped identifiers} - Stripe Web API uses date as a version identifier. While timestamped versions provide the time frame of a version, they do not provide any compatibility information between versions.
-
-\textbf{Identifiers with major and minor version numbers} - Most of the Web APIs studied use major and minor version numbers to identify a version. Facebook, Twitter, WordPress, Google Calendar, Google Maps and OpenStreetMap follow this approach. However, an explanation of the major and minor version numbers aren't provided and cannot be used to infer compatibility information.
-
-Also, web APIs often evolve with breaking changes without issuing a new version identifier. For example, Facebook, Google Calendar and GitHub APIs often receive breaking changes without using a new version identifier.
-
-
-\subsubsection{Upgrade Mode} % (fold)
-
-From our case studies, we found the Web APIs followed several different approaches to versioning.
-
-\textbf{Single Version} - Web APIs that force the API clients to migrate either because only one version is available or deprecated older versions will be removed. These include Facebook REST API (90 days), Twitter REST API (no specific time frame), Github API (no specific time frame), OpenStreetMap API (no specific time frame), Google Calendar (6 months), Google Maps (no specific time frame).
-
-\textbf{Multiple Versions} - Multiple versions of the Web API are supported for longer duration. These include Wordpress REST API, Salesforce API, Stripe API.
-
-Both of these categories, single and multiple available versions, have their advantages and disadvantages. Forcing API clients to use a single stable version makes it easy to maintain the Web APIs at the expense of scheduling flexibility for API users. These APIs keep a deprecated version for a limited period of time to provide a buffer time for the API users. For example, Google Calendar API is supporting its deprecated version for 6 months.
-
-Maintaining multiple versions of the Web APIs provide more scheduling flexibility to the API clients but requires more effort from the API publisher. As a result, not all the older versions are maintained. When API clients lag far behind the latest version, migrating to the latest version becomes harder. For example, here is an excerpt of a comment from a Stripe Web API client developer \footnote{\url{https://groups.google.com/a/lists.stripe.com/forum/#!searchin/api-discuss/version/api-discuss/x8TM-yHnhYQ/y9JJKytSiUAJ}}:
-
-\small
-``...I just learned that we're about 14 versions behind and would like to work on upgrading but there are lots of breaking changes...''
-\normalsize
-
-While both the forced and on demand modes are seen in practice, future work needs to be carried out to compare and contrast the benefits of these modes in greater detail.
-
-\subsubsection{Change Profiles}
-The Web APIs evolve at different frequencies as well as the actual change that takes place during their evolution varies from one API to another. Fig. \ref{fig:proflie} shows an aggregated view of the count of different categories of changes observed for different Web APIs based on the aforementioned coding scheme.
 
 \begin{figure*}[!htp]
 \subfigure[Facebook API Changes (11 Releases)]{
@@ -504,11 +476,38 @@ The Web APIs evolve at different frequencies as well as the actual change that t
 \end{figure*}
 
 
+\textbf{Numbered identifiers} - Contiguous integers are used to identify new versions by Salesforce and GitHub Web APIs. Such naming scheme clearly communicates the sequence between versions but cannot be used to infer compatibility between versions.
+
+\textbf{Timestamped identifiers} - Stripe Web API uses date as a version identifier. While timestamped versions provide the time frame of a version, they do not provide any compatibility information between versions.
+
+\textbf{Identifiers with major and minor version numbers} - Most of the Web APIs studied use major and minor version numbers to identify a version. Facebook, Twitter, WordPress, Google Calendar, Google Maps and OpenStreetMap follow this approach. However, an explanation of the major and minor version numbers aren't provided and cannot be used to infer compatibility information.
+
+Also, web APIs often evolve with breaking changes without issuing a new version identifier. For example, Facebook, Google Calendar and GitHub APIs often receive breaking changes without using a new version identifier.
 
 
 
+\subsubsection{Upgrade Mode} % (fold)
+
+From our case studies, we found the Web APIs followed several different approaches to versioning.
+
+\textbf{Single Version} - Web APIs that force the API clients to migrate either because only one version is available or deprecated older versions will be removed. These include Facebook REST API (90 days), Twitter REST API (no specific time frame), Github API (no specific time frame), OpenStreetMap API (no specific time frame), Google Calendar (6 months), Google Maps (no specific time frame).
+
+\textbf{Multiple Versions} - Multiple versions of the Web API are supported for longer duration. These include Wordpress REST API, Salesforce API, Stripe API.
+
+Both of these categories, single and multiple available versions, have their advantages and disadvantages. Forcing API clients to use a single stable version makes it easy to maintain the Web APIs at the expense of scheduling flexibility for API users. These APIs keep a deprecated version for a limited period of time to provide a buffer time for the API users. For example, Google Calendar API is supporting its deprecated version for 6 months.
+
+Maintaining multiple versions of the Web APIs provide more scheduling flexibility to the API clients but requires more effort from the API publisher. As a result, not all the older versions are maintained. When API clients lag far behind the latest version, migrating to the latest version becomes harder. For example, here is an excerpt of a comment from a Stripe Web API client developer \footnote{\url{https://groups.google.com/a/lists.stripe.com/forum/#!searchin/api-discuss/version/api-discuss/x8TM-yHnhYQ/y9JJKytSiUAJ}}:
+
+\small
+``...I just learned that we're about 14 versions behind and would like to work on upgrading but there are lots of breaking changes...''
+\normalsize
+
+While both the forced and on demand modes are seen in practice, future work needs to be carried out to compare and contrast the benefits of these modes in greater detail.
 
 
+
+\subsubsection{Change Profiles}
+The Web APIs evolve at different frequencies as well as the actual change that takes place during their evolution varies from one API to another. Fig. \ref{fig:proflie} shows an aggregated view of the count of different categories of changes observed for different Web APIs based on the aforementioned coding scheme.
 
 %
 %
