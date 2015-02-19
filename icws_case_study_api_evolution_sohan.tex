@@ -137,7 +137,7 @@ To identify if a new version of a Web API has any impact on a specific API clien
 
 Existing research on tool support for RESTful Web API evolution is rather limited. hRESTS is an HTML-based specification for describing RESTful Web APIs that can be used by computers to auto-generate client code \cite{4740521}. RESTdesc is another specification for describing RESTful Web API documentation where APIs are described using pre and post conditions \cite{RESTdesc}. However, the input to both hRESTS and RESTDesc require manual effort to produce the desired specification.
 
-In the literature, we see multiple tools exist that rely on WSDL files. WSDL solutions have limited applicability for RESTful Web APIs since WSDL files cannot be used to fully describe RESTful APIs. Based on our case study, we will discuss future research problems on tool development to support the challenges with RESTful Web API evolution.
+In the literature, we found multiple tools exist that rely on WSDL files. WSDL solutions have limited applicability for RESTful Web APIs since WSDL files cannot be used to fully describe RESTful APIs. Based on our case study, we will discuss future research problems on tool development to support the challenges with RESTful Web API evolution.
 
 \section{Case Study}
 When companies evolve their Web APIs in practice the new changes can often break applications that rely on these APIs. The aim of this case study is to investigate current industry practices on Web API Evolution to answer the following research questions.
@@ -237,7 +237,7 @@ In this section we present our findings for RQ1-3.
 
 Based on our coding scheme, we identified the following new change patterns to describe changes between versions of Web APIs in addition to the 16 patterns described by Jun et al. \cite{li_client_2013} as follows:
 
-\textbf{Move API elements} - We found 114 occurrences of element moves, where API elements are moved under new hierarchy or renamed. For example, Stripe API moved two objects under a new API element as seen in the following change log from version 2013-08-13:
+\textbf{Move API elements} - We found 114 occurrences of element moves, where API elements are moved under new hierarchy or renamed. For example, Stripe API moved two objects under a new API element as found in the following change log from version 2013-08-13:
 
 \small
 \begin{quotation}
@@ -264,7 +264,7 @@ now hidden to unauthenticated users..
 ''\end{quotation}
 \normalsize
 
-Another example that demonstrates a behavior change can be seen from the 2013-10-29 version of Stripe API \footnote{\url{https://stripe.com/docs/upgrades#2014-01-31}}:
+Another example that demonstrates a behavior change can be found from the 2013-10-29 version of Stripe API \footnote{\url{https://stripe.com/docs/upgrades#2014-01-31}}:
 
 \small
 \begin{quotation}
@@ -272,7 +272,7 @@ Another example that demonstrates a behavior change can be seen from the 2013-10
 \end{quotation}
 \normalsize
 
-\textbf{Post condition change} - In the studied Web APIs we saw examples where the immediate result of an API call remained unchanged but new post conditions are imposed requiring additional work for the API users. The following change on Facebook platform API illustrates this \footnote{\url{https://developers.facebook.com/docs/apps/migrations/payments-disputes-realtime-updates-required-2014-05-13}}:
+\textbf{Post condition change} - In the studied Web APIs we found examples where the immediate result of an API call remained unchanged but new post conditions are imposed requiring additional work for the API users. The following change on Facebook platform API illustrates this \footnote{\url{https://developers.facebook.com/docs/apps/migrations/payments-disputes-realtime-updates-required-2014-05-13}}:
 
 \small
 \begin{quotation}
@@ -502,7 +502,7 @@ Maintaining multiple versions of the Web APIs provide more scheduling flexibilit
 ``...I just learned that we're about 14 versions behind and would like to work on upgrading but there are lots of breaking changes...''
 \normalsize
 
-While both the forced and on demand modes are seen in practice, future work needs to be carried out to compare and contrast the benefits of these modes in greater detail.
+While both the forced and on demand modes are found in practice, future work needs to be carried out to compare and contrast the benefits of these modes in greater detail.
 
 
 
@@ -850,11 +850,11 @@ Web API documentation is used by API users as the primary source of information 
 
 \textbf{API Interface definition} - The interface definition is a major part of the Web API documentation where each API element is described with a general overview  and related business rules.
 
-\textbf{Example usage} - Examples that describe different use cases of the Web APIs are also commonly seen in the documentation. The examples contain the data and HTTP headers for sample requests and the corresponding API responses.
+\textbf{Example usage} - Examples that describe different use cases of the Web APIs are also commonly found in the documentation. The examples contain the data and HTTP headers for sample requests and the corresponding API responses.
 
 Some of the studied Web APIs also provide live web browser based API explorers, where API users can make API calls without needing to write any code. However, the studied Web APIs that offered Live API Explorer only did so for the latest API versions.
 
-Web API documentation needs to include additional information compared to local APIs since HTTP is used for communication. As an API evolves lack of documentation for older API versions causes difficulties with the upgrade process as seen in the following comment from a Stripe API user\footnote{\url{https://groups.google.com/a/lists.stripe.com/forum/#!searchin/api-discuss/version/api-discuss/li4PyVcweiw/NT9SFTtF-vQJ}}
+Web API documentation needs to include additional information compared to local APIs since HTTP is used for communication. As an API evolves lack of documentation for older API versions causes difficulties with the upgrade process as found in the following comment from a Stripe API user\footnote{\url{https://groups.google.com/a/lists.stripe.com/forum/#!searchin/api-discuss/version/api-discuss/li4PyVcweiw/NT9SFTtF-vQJ}}
 
 \small
 \begin{quotation}
@@ -863,7 +863,7 @@ Web API documentation needs to include additional information compared to local 
 \end{quotation}
 \normalsize
 
-We also investigated how the API documentation is generated. We found that, Web API documents are manually generated and updated, unlike the documentation for local APIs which are are typically auto-generated. For WordPress and OpenStreetMap, this is apparent from their source code, as we see the use of manually edited wiki and Markdown files to generate the documentation\footnote{\url{http://en.wikipedia.org/wiki/Markdown}}.
+We also investigated how the API documentation is generated. We found that, Web API documents are manually generated and updated, unlike the documentation for local APIs which are are typically auto-generated. For WordPress and OpenStreetMap, this is apparent from their source code, as we found the use of manually edited wiki and Markdown files to generate the documentation\footnote{\url{http://en.wikipedia.org/wiki/Markdown}}.
 
 In our case studies, we found one example of self-documenting Web API as discussed by Laskey \cite{laskey2008considerations}. The Salesforce Web API has API endpoints that describe all available versions of the API that can be used to programmatically determine the changes between versions.
 
@@ -879,7 +879,7 @@ Communicating updates and changelogs is an important activity for evolving Web A
 
   \textbf{API response} - Some Web APIs use custom HTTP headers to indicate when a call is made to a deprecated version. For example, Wordpress REST API sends the X-WP-DeprecatedFunction header in response to API calls made to deprecated endpoints.
 
-  \textbf{Email} - Facebook sends customized email alerts to its API clients based on their usage of the API, similar to the idea as presented by Zou et al. \cite{le2008synchronizing}. API calls are recorded to determine if a change has an impact on users. The granularity of the change tracking often results into false-positives, as seen in this comment by a Facebook API user \footnote{\url{http://stackoverflow.com/questions/16270446/updating-app-for-breaking-change-non-threaded-comments}}:
+  \textbf{Email} - Facebook sends customized email alerts to its API clients based on their usage of the API, similar to the idea as presented by Zou et al. \cite{le2008synchronizing}. API calls are recorded to determine if a change has an impact on users. The granularity of the change tracking often results into false-positives, as found in this comment by a Facebook API user \footnote{\url{http://stackoverflow.com/questions/16270446/updating-app-for-breaking-change-non-threaded-comments}}:
 
 \small
 \begin{quotation}
@@ -906,15 +906,15 @@ Live Web API explorers are used by API users to try the APIs with little effort.
 
 Self documenting Web APIs can be used to automatically determine compatibility between two versions of a Web API. We found Salesforce REST API to be the only example from our case studies that implemented self documenting Web APIs. For practitioners, we recommend providing self-documenting Web APIs. We also identify this as an opportunity for future research so that consistent machine readable self-documenting Web APIs can be easily developed.
 
-\textbf{RQ3 Communication} - For communicating API changes, we saw a number of different channels that are used in practice. These channels need to be compared so that the effective channels can be used for communicating between the API developers and users.
+\textbf{RQ3 Communication} - For communicating API changes, we found a number of different channels that are used in practice. These channels need to be compared so that the effective channels can be used for communicating between the API developers and users.
 
-In the change profiles we saw the APIs change frequently and this requires manual effort to understand the impact of a change on a specific API user. This can be simplified by alerting users about an API change with a customized changelog. We also found that API related discussions are carried out external to the API documentation sites. API users need to search multiple disconnected information sources when API related questions arise. For practitioners, we recommend publishing a customized changelog for their Web APIs and providing discussion forums with API documentation. Previous research showed a solution based on WSDL files \cite{le2008synchronizing}. Future research is needed to solve this problem for RESTful Web APIs.
+In the change profiles we found the APIs change frequently and this requires manual effort to understand the impact of a change on a specific API user. This can be simplified by alerting users about an API change with a customized changelog. We also found that API related discussions are carried out external to the API documentation sites. API users need to search multiple disconnected information sources when API related questions arise. For practitioners, we recommend publishing a customized changelog for their Web APIs and providing discussion forums with API documentation. Previous research showed a solution based on WSDL files \cite{le2008synchronizing}. Future research is needed to solve this problem for RESTful Web APIs.
 
 The open source Web APIs (Wordpress and OpenStreetMap) had limited documentation and change log information compared to the proprietary Web APIs. This presents an opportunity for researchers and industry practitioners to create reusable open source versioning and documentation tools for evolving Web APIs.
 
 \textbf{Limitations} - We recognize the number of Web APIs studied to be a threat to the construct validity. Although our selection involves a diverse set of Web APIs, the findings should not be treated as exhaustive. Our selection criteria included different industry domains, API sizes, popularity and maturity levels to minimize selection bias. To mitigate the interpretation bias of the coding scheme, the first two authors of this paper independently annotated randomly selected snippets of change logs from different Web APIs and reached the same conclusion indicating the replicability of the given coding scheme.
 
-Given the state of practice we see a wide variety of ways to evolve Web APIs in terms of versioning, documentation and communication of changes and no consistent way to deal with the changes. This indicates an immature area where cost-effective solutions that are acceptable for both API developers and users are still missing - as discussed. Further research needs to be carried out to validate the usefulness of the aforementioned recommendations.
+Given the state of practice we found a wide variety of ways to evolve Web APIs in terms of versioning, documentation and communication of changes and no consistent way to deal with the changes. This indicates an immature area where cost-effective solutions that are acceptable for both API developers and users are still missing - as discussed. Further research needs to be carried out to validate the usefulness of the aforementioned recommendations.
 
 \section{Conclusion}
 Web API evolution poses challenges since a change may break applications that are developed by different teams and organizations. We presented a case study of Web API evolution focusing on the challenges involved with versioning, documentation and communication of API changes. Recommendations for practitioners from our analysis include the use of semantic versioning, separate releases for bug fixes and new features, auto generated API documentation cross-linked with changelogs and providing live API explorers. A list of open research problems are discussed related to Web API evolution that we want to solve in our future work.
